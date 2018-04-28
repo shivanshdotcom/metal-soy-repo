@@ -1,0 +1,80 @@
+{namespace View}
+
+/**
+ * Prints the portlet main view.
+ *
+ * @param id
+ * @param navigationURL
+ * @param themeDisplay
+ * @param customMessage
+ * @param? getButtonValue
+ * @param? getTextValue
+ * @param? getDropdownValue
+ * @param userNames
+ * @param placeholder
+ */
+{template .render}
+	<div id="{$id}">
+		{call Header.render data="all"}{/call}
+
+		<p>{msg desc=""}here-you-will-find-how-easy-it-is-to-do-things-like{/msg}</p>
+
+		<h3>{msg desc=""}listing-pages{/msg}</h3>
+
+		<div class="list-group">
+			<div class="list-group-heading">{msg desc=""}navigate-to{/msg}</div>
+
+			{foreach $layout in $themeDisplay.layouts}
+				<a class="list-group-item" href="{$layout.friendlyURL}">{$layout.nameCurrentValue}</a>
+			{/foreach}
+		</div>
+
+		<h3>{msg desc=""}navigating-between-views{/msg}</h3>
+
+		<a href="{$navigationURL}">{msg desc=""}click-here-to-navigate-to-another-view{/msg}</a>
+
+		{call Footer.render data="all"}{/call}
+		<div>
+			<p>{$customMessage}</p>
+			<p><input name="firstname" data-onchange="gettextresponse" type="text"></p>
+			<button data-onclick="getbuttonresponse" type="button">Klick</button>
+		</div>
+		<div>
+			<p>Here is custom metal library and HTML5 component usage</p>
+		</div>
+		<div>                                                                 
+	         {call CustomAlerts.render}
+	         {/call}                                                                                                                                                              
+	    </div>
+	    <div>                                                                 
+	         {call CustomAlerts.rendererror}
+	         {/call}                                                                                                                                                              
+	    </div>	 
+		<div>
+            {call CustomButton.render}	         
+	            {param label:'Custom Klick'/}
+	            {param argument:'test value'/}
+	            {param type:'button'/}
+	            {param events: ['clickEvent' : $getButtonValue] /}      
+            {/call}
+        </div>
+        <div>                                                                 
+	         {call CustomInput.render} 
+		         {param inputType: 'text'/}
+		         {param inputId :'name'/}             
+		         {param inputName: 'name' /}
+		         {param inputValue: $placeholder /}                                                              
+		         {param events: ['changeEvent' : $getTextValue] /}
+	         {/call}                                                                                                                                                              
+	    </div>
+	    <div>
+            {call CustomDropdown.render}	                
+                {param label: 'User' /}
+                {param id: 'user' /}
+                {param name: 'user' /}
+                {param items: $userNames /}
+                {param events: ['valueChangeEvent' : $getDropdownValue] /}
+            {/call}
+	    </div>
+	</div>
+{/template}

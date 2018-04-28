@@ -1,0 +1,38 @@
+{namespace CustomDropdown}
+/**
+* Dropdown Component
+*/
+{template .render}
+{@param  items : ?}
+{@param? label : ?}
+{@param? id : ?}
+{@param? name : ?}
+{@param? value : ?}
+  
+    <div class="form-group">
+            <div class="label-wrapper">
+                <label for="{$id}" type="text">{$label}
+                </label>
+            </div>
+            <div class="input-wrapper">
+                <select 
+                    type="dropdown" 
+                    class="form-control" 
+                    id="{$id}" 
+                    name="{$name}" 
+                    placeholder=""
+                    data-onchange="changeHandler" >   
+                    {if not $value}              
+                     <option selected value="">-Please Select-</option>
+                     {else}
+                      <option selected value="{$value}">{$value}</option>
+                     {/if}
+                    {if $items}
+                    	{foreach $key in keys($items)}
+                        <option value="{$key}">{$items[$key]}</option>
+                        {/foreach}
+                    {/if} 
+                </select>
+            </div>    
+    </div>  
+{/template}

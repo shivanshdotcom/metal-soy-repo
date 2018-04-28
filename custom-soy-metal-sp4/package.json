@@ -1,0 +1,16 @@
+{
+	"dependencies": {
+		"metal-component": "^2.16.5",
+		"metal-soy": "^2.16.5",
+		"metal-ajax": "^3.1.1",
+		"metal-state": "^2.16.5",
+		"metal": "^2.16.5",
+		"metal-events": "^2.16.5"
+	},
+	"devDependencies": {
+		"liferay-module-config-generator": "^1.2.1",
+		"metal-cli": "^4.4.0"
+	},
+	"name": "custom-soy-metal-sp4",
+	"version": "1.0.0"
+}

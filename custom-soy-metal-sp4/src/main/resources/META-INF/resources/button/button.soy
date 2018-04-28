@@ -1,0 +1,15 @@
+{namespace CustomButton}
+
+/**
+*Button Component
+*/
+{template .render}
+
+  {@param? label : ?}
+  {@param? type: ?}
+    
+    <button type="{$type}" data-onclick="clickHandler">
+        {$label}
+    </button>
+  
+{/template}

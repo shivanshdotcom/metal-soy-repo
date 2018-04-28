@@ -1,0 +1,23 @@
+{namespace CustomInput}
+
+/**
+* Input Component
+*/
+{template .render}
+ {@param? inputType : ?}
+ {@param? inputName : ?} 
+ {@param? inputId : ?}
+ {@param? inputValue : ?}
+
+	<div class="form-group">
+	    <div class="input-wrapper">
+	        <input 
+	        	data-onchange="changeHandler"
+	            id="{$inputId}"
+	            name="{$inputName}"
+	            type="{$inputType}"
+	            value="{$inputValue}" />
+	    </div>
+	</div>
+{/template} 
+ 
